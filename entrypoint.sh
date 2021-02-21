@@ -1,3 +1,4 @@
+#!/bin/sh
 cd web
 sed -i s/CACHEBUSTER/`uuidgen`/g static/bootstrap.html
 BASWS_CLIENT_ENCRYPTION_KEY=$1 cargo build --target wasm32-unknown-unknown --release
