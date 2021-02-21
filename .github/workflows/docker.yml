@@ -1,0 +1,25 @@
+name: Cosmic Verge Docker Build Environment
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    # Rebuild this every night at 5am pacific
+    - cron: "0 13 * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Publish to Registry
+        id: publish
+        if: github.ref == 'refs/heads/main'
+        uses: elgohr/Publish-Docker-Github-Action@2.22
+        with:
+          name: khonsulabs/cosmicverge-build
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          snapshot: true

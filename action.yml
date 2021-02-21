@@ -1,0 +1,12 @@
+# action.yml
+name: "Cosmic Verge Builder"
+description: "Builds Cosmic Verge"
+inputs:
+  client-encryption-key:
+    description: "Encryption Key for client session variables"
+    required: true
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.client-encryption-key }}
