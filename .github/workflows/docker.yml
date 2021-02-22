@@ -5,8 +5,8 @@ on:
     branches:
       - main
   schedule:
-    # Rebuild this every night at 5am pacific
-    - cron: "0 13 * * *"
+    # Rebuild this every night at 6am pacific
+    - cron: "0 14 * * *"
 
 jobs:
   build:
