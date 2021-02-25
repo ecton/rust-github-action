@@ -14,6 +14,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
+      - name: Debug
+        run: whoami
       - name: Publish to Registry
         id: publish
         if: github.ref == 'refs/heads/main'
